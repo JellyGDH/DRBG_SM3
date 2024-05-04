@@ -328,6 +328,16 @@ func Test_KnownAnswer() int {
 	}
 }
 
+// 输出随机数样本
+func (working_state *Working_State) Get_Sample(addition_input string) {
+	file, _ := os.Create("sample.bin")
+	defer file.Close()
+	for i := 0; i < 125000000/32+1; i++ {
+		_, _ = file.Write(working_state.SM3_DRBG_Generate(256, addition_input))
+	}
+	_ = file.Sync()
+}
+
 // 初始化
 func Init_DRBG_SM3(Mode int, personalization_string string) *Working_State {
 	go Select_Mode(Mode)
