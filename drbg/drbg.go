@@ -5,9 +5,10 @@ import (
 	"encoding/hex"
 	"fmt"
 	"math"
+	"os"
 	"slices"
 	"time"
-
+	
 	"github.com/jellygdh/drbg_sm3/pool"
 	"github.com/jellygdh/drbg_sm3/sm3"
 	"github.com/jellygdh/drbg_sm3/tools"
